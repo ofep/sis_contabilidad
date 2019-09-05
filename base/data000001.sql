@@ -1682,3 +1682,11 @@ select pxp.f_insert_tgui ('Configuracion Auxiliar Etasa', 'Configuracion Auxilia
 select pxp.f_insert_tgui ('Configuracion Marca Cbte', 'Configuracion de la marca de comprobante', 'cbtemarca', 'si', 20, 'sis_contabilidad/vista/marca/Marca.php', 3, '', 'Marca', 'CONTA');
 /***********************************F-DAT-EGS-CONTA-07-11/06/2019****************************************/
 
+/***********************************I-DAT-RCM-CONTA-0-04/09/2019*****************************************/
+UPDATE conta.tconfig_tipo_cuenta SET
+nro_base = 6
+WHERE tipo_cuenta = 'gasto';
+
+INSERT INTO conta.tconfig_tipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "nro_base", "tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:52.716', NULL, E'activo', 4, E'orden');
+/***********************************F-DAT-RCM-CONTA-0-04/09/2019*****************************************/
