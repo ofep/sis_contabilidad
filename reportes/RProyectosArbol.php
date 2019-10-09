@@ -35,7 +35,7 @@ class RProyectosArbol
             ->setKeywords("office 2007 openxml php")
             ->setCategory("Report File");
         $this->docexcel->setActiveSheetIndex(0);
-        $this->docexcel->getActiveSheet()->setTitle($this->objParam->getParametro('titulo_archivo'));
+        $this->docexcel->getActiveSheet()->setTitle('Hoja 1');
         $this->equivalencias=array(0=>'A',1=>'B',2=>'C',3=>'D',4=>'E',5=>'F',6=>'G',7=>'H',8=>'I',
             9=>'J',10=>'K',11=>'L',12=>'M',13=>'N',14=>'O',15=>'P',16=>'Q',17=>'R',
             18=>'S',19=>'T',20=>'U',21=>'V',22=>'W',23=>'X',24=>'Y',25=>'Z',
@@ -85,7 +85,7 @@ class RProyectosArbol
 
         $sheet->getStyle('A2')->getFont()->applyFromArray(array('bold'=>true,
             'size'=>12,
-            'name'=>Arial));
+            'name'=>'Arial'));
 
         $sheet->getStyle('A2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $sheet->setCellValueByColumnAndRow(0,2,$titulo);
@@ -95,7 +95,7 @@ class RProyectosArbol
         $sheet->getStyle('A3')->getFont()->applyFromArray(array(
             'bold'=>true,
             'size'=>10,
-            'name'=>Arial));
+            'name'=>'Arial'));
 
         $sheet->getStyle('A3')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $sheet->setCellValueByColumnAndRow(0,3,$fechas);
@@ -103,7 +103,7 @@ class RProyectosArbol
         $sheet->getStyle('A4')->getFont()->applyFromArray(array(
             'bold'=>true,
             'size'=>10,
-            'name'=>Arial));
+            'name'=>'Arial'));
 
         $sheet->getStyle('A4')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         $sheet->setCellValueByColumnAndRow(0,4,$moneda);

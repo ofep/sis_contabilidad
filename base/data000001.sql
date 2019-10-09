@@ -62,11 +62,11 @@ Para  definir la la metadata, menus, roles, etc
 
 1) sincronize ls funciones y procedimientos del sistema
 2)  verifique que la primera linea de los datos sea la insercion del sistema correspondiente
-3)  exporte los datos a archivo SQL (desde la interface de sistema en sis_seguridad), 
+3)  exporte los datos a archivo SQL (desde la interface de sistema en sis_seguridad),
     verifique que la codificacion  se mantenga en UTF8 para no distorcionar los caracteres especiales
-4)  remplaze los sectores correspondientes en este archivo en su totalidad:  (el orden es importante)  
-                             menu, 
-                             funciones, 
+4)  remplaze los sectores correspondientes en este archivo en su totalidad:  (el orden es importante)
+                             menu,
+                             funciones,
                              procedimietnos
 */
 
@@ -86,7 +86,7 @@ select pxp.f_insert_tgui ('Ordenes de Trabajo', 'ordenes de trabajo', 'ODT', 'si
 select pxp.f_insert_testructura_gui ('CONTA', 'SISTEMA');
 select pxp.f_insert_testructura_gui ('CTA', 'CONTA');
 select pxp.f_insert_testructura_gui ('AUXCTA', 'CONTA');
-select pxp.f_insert_testructura_gui ('ODT', 'CONTA'); 
+select pxp.f_insert_testructura_gui ('ODT', 'CONTA');
 
 
 select pxp.f_insert_tgui ('Config Tipo Cuenta', 'Configuracion de numero para los tipos de cuenta', 'CTIP', 'si', 1, 'sis_contabilidad/vista/config_tipo_cuenta/ConfigTipoCuenta.php', 2, '', 'ConfigTipoCuenta', 'CONTA');
@@ -179,7 +179,7 @@ select pxp.f_insert_tgui ('Clases de Comprobantes', 'Clases de Comprobantes', 'C
 select pxp.f_insert_tgui ('Cuentas Bancarias', 'relacion de cuentas bancarias y cuentas contables', 'RELCCCB', 'si', 4, 'sis_contabilidad/vista/cta_cuenta_bancaria/CtaCuentaBancaria.php', 3, '', 'CtaCuentaBancaria', 'CONTA');
 select pxp.f_insert_testructura_gui ('CCBT', 'CONTA');
 select pxp.f_insert_testructura_gui ('RELCCCB', 'RELACON');
-          
+
 
 
 /***********************************F-DAT-RAC-CONTA-0-10/07/2013*****************************************/
@@ -222,7 +222,7 @@ select pxp.f_insert_testructura_gui ('DEPTCON', 'RELACON');
 /***********************************F-DAT-RAC-CONTA-0-03/09/2013*****************************************/
 
 
-   
+
 /***********************************I-DAT-RCM-CONTA-18-29/08/2013*****************************************/
 select pxp.f_insert_tgui ('Registro de Comprobantes', 'Registro de Comprobantes', 'CBTE.1.1', 'si', 1, 'sis_contabilidad/vista/int_comprobante/IntComprobante.php', 3, '', 'IntComprobante', 'CONTA');
 
@@ -309,10 +309,10 @@ VALUES (1, 1, E'2013-09-19 20:10:41.411', E'2013-09-23 12:39:57.663', E'activo',
 
 INSERT INTO conta.tdetalle_plantilla_comprobante (
 "id_usuario_reg",
- "id_usuario_mod", 
- "fecha_reg", 
- "fecha_mod", 
- "estado_reg", 
+ "id_usuario_mod",
+ "fecha_reg",
+ "fecha_mod",
+ "estado_reg",
  "id_detalle_plantilla_comprobante", "id_plantilla_comprobante", "tabla_detalle", "debe_haber", "campo_monto", "agrupar", "campo_cuenta", "campo_auxiliar", "campo_partida", "campo_centro_costo", "es_relacion_contable", "tipo_relacion_contable", "campo_relacion_contable", "aplicar_documento", "campo_documento", "campo_fecha", "campo_concepto_transaccion", "primaria", "otros_campos", "nom_fk_tabla_maestro", "campo_partida_ejecucion", "descripcion", "campo_monto_pres", "id_detalle_plantilla_fk", "forma_calculo_monto", "func_act_transaccion", "campo_id_tabla_detalle", "rel_dev_pago", "campo_trasaccion_dev")
 VALUES (1, 1, E'2013-09-23 12:34:39.340', E'2013-09-23 16:30:21.498', E'activo', 8, 2, E'', E'haber', E'{$tabla_padre.otros_descuentos}', E'si', E'', E'', E'', E'', E'si', E'CUENRETPRO', E'{$tabla_padre.id_proveedor}', E'no', E'', E'', E'', E'si', E'', E'', E'', E'otras descuentos proveedor', E'0', 5, E'incremento', E'', E'', E'no', E'');
 
@@ -415,9 +415,7 @@ select pxp.f_insert_tgui ('Subsistema', 'Subsistema', 'DEPTCON.7', 'no', 0, 'id_
 select pxp.f_insert_tgui ('Usuarios', 'Usuarios', 'DEPTCON.2.1', 'no', 0, 'sis_seguridad/vista/usuario/Usuario.php', 5, '', 'usuario', 'CONTA');
 select pxp.f_insert_tgui ('Personas', 'Personas', 'DEPTCON.2.1.1', 'no', 0, 'sis_seguridad/vista/persona/Persona.php', 6, '', 'persona', 'CONTA');
 select pxp.f_insert_tgui ('Roles', 'Roles', 'DEPTCON.2.1.2', 'no', 0, 'sis_seguridad/vista/usuario_rol/UsuarioRol.php', 6, '', 'usuario_rol', 'CONTA');
-select pxp.f_insert_tgui ('EP\', 'EP\', 'DEPTCON.2.1.3', 'no', 0, 'sis_seguridad/vista/usuario_grupo_ep/UsuarioGrupoEp.php', 6, '', ', 
-          width:400,
-          cls:', 'CONTA');
+select pxp.f_insert_tgui ('EP', 'EP', 'DEPTCON.2.1.3', 'no', 0, 'sis_seguridad/vista/usuario_grupo_ep/UsuarioGrupoEp.php', 6, '', ',width:400,cls:', 'CONTA');
 select pxp.f_insert_tgui ('Subir foto', 'Subir foto', 'DEPTCON.2.1.1.1', 'no', 0, 'sis_seguridad/vista/persona/subirFotoPersona.php', 7, '', 'subirFotoPersona', 'CONTA');
 select pxp.f_insert_tgui ('Plantilla Cálculo', 'Plantilla Cálculo', 'PLADOC.1', 'no', 0, 'sis_contabilidad/vista/plantilla_calculo/PlantillaCalculo.php', 3, '', '50%', 'CONTA');
 select pxp.f_insert_tgui ('Catálogo', 'Catálogo', 'PLADOC.1.1', 'no', 0, 'sis_parametros/vista/catalogo/Catalogo.php', 4, '', 'Catalogo', 'CONTA');
@@ -477,7 +475,7 @@ select pxp.f_insert_tgui ('Subir foto', 'Subir foto', 'ALMCUE.6.2.3.2.1', 'no', 
 
 
 ----------------------------------
---COPY LINES TO data.sql FILE  
+--COPY LINES TO data.sql FILE
 ---------------------------------
 
 select pxp.f_insert_tgui ('Plan de Cuentas', 'Cuentas', 'CTA', 'si', 0, 'sis_contabilidad/vista/cuenta/Cuenta.php', 2, '', 'Cuenta', 'CONTA');
@@ -500,7 +498,7 @@ select pxp.f_insert_tgui ('Configuraciones', 'Configuraciones', 'CONF', 'si', 1,
 select pxp.f_insert_tgui ('Tipo de relaicon comprobantes', 'Tipo de relaicon comprobantes', 'TRECOM', 'si', 4, 'sis_contabilidad/vista/tipo_relacion_comprobante/TipoRelacionComprobante.php', 3, '', 'TipoRelacionComprobante', 'CONTA');
 
 ----------------------------------
---COPY LINES TO dependencies.sql FILE  
+--COPY LINES TO dependencies.sql FILE
 ---------------------------------
 
 select pxp.f_delete_testructura_gui ('CTA', 'CONTA');
@@ -843,7 +841,7 @@ VALUES (E'conta_prioridad_depto_inter', E'3', E'prioridad depto de contabilidad 
 /***********************************I-DAT-RAC-CONTA-0-12/01/2016****************************************/
 
 ----------------------------------
---COPY LINES TO data.sql FILE  
+--COPY LINES TO data.sql FILE
 ---------------------------------
 
 select pxp.f_insert_tgui ('SISTEMA DE CONTABILIDAD', '', 'CONTA', 'si', 1, '', 1, '', '', 'CONTA');
@@ -907,7 +905,7 @@ select pxp.f_insert_tgui ('Subsistema', 'Subsistema', 'DEPTCON.7', 'no', 0, 'id_
 select pxp.f_insert_tgui ('Usuarios', 'Usuarios', 'DEPTCON.2.1', 'no', 0, 'sis_seguridad/vista/usuario/Usuario.php', 5, '', 'usuario', 'CONTA');
 select pxp.f_insert_tgui ('Personas', 'Personas', 'DEPTCON.2.1.1', 'no', 0, 'sis_seguridad/vista/persona/Persona.php', 6, '', 'persona', 'CONTA');
 select pxp.f_insert_tgui ('Roles', 'Roles', 'DEPTCON.2.1.2', 'no', 0, 'sis_seguridad/vista/usuario_rol/UsuarioRol.php', 6, '', 'usuario_rol', 'CONTA');
-select pxp.f_insert_tgui ('EP\', 'EP\', 'DEPTCON.2.1.3', 'no', 0, 'sis_seguridad/vista/usuario_grupo_ep/UsuarioGrupoEp.php', 6, '', ', 
+select pxp.f_insert_tgui ('EP', 'EP', 'DEPTCON.2.1.3', 'no', 0, 'sis_seguridad/vista/usuario_grupo_ep/UsuarioGrupoEp.php', 6, '', ',
           width:400,
           cls:', 'CONTA');
 select pxp.f_insert_tgui ('Subir foto', 'Subir foto', 'DEPTCON.2.1.1.1', 'no', 0, 'sis_seguridad/vista/persona/subirFotoPersona.php', 7, '', 'subirFotoPersona', 'CONTA');
@@ -989,7 +987,7 @@ select pxp.f_insert_tgui ('Configuración Cambiaria', 'para configurar moneda de
 /* Data for the 'conta.ttipo_relacion_contable' table  (Records 1 - 42) */
 
 INSERT INTO conta.ttipo_relacion_contable ("id_usuario_reg", "fecha_reg", "estado_reg", "id_usuario_ai", "usuario_ai", "nombre_tipo_relacion", "codigo_tipo_relacion", "tiene_centro_costo", "tiene_partida", "tiene_auxiliar", "id_tabla_relacion_contable", "partida_tipo", "partida_rubro")
-VALUES 
+VALUES
 
   (1, E'2015-08-20 10:20:21.948', E'activo', NULL, NULL, E'IVA-DF', E'IVA-DF', E'no', E'si', E'si', NULL, E'presupuestaria', E'recurso'),
   (1, E'2015-08-20 10:22:29.125', E'activo', NULL, NULL, E'IT', E'IT', E'no', E'si', E'si', NULL, E'presupuestaria', E'gasto'),
@@ -997,20 +995,20 @@ VALUES
   (1, E'2015-09-24 13:20:42.111', E'activo', NULL, NULL, E'Compras por defecto', E'CMPDEF', E'no', E'si', E'si', NULL, E'flujo', E'gasto'),
   (1, E'2015-09-24 14:03:20.381', E'activo', NULL, NULL, E'Cuenta de Banco para ventas por defecto', E'VENDEF', E'si-unico', E'si', E'si', NULL, E'flujo', E'recurso'),
   (175, E'2015-10-20 10:12:43.844', E'activo', NULL, NULL, E'Cuentas Bancarias Ingresos', E'CUEBANCING', E'no', E'si', E'si', 2, E'flujo', E'recurso_gasto');
-  
+
 
 /* Data for the 'conta.ttipo_relacion_contable' table  (Records 1 - 6) */
 
 INSERT INTO conta.ttipo_relacion_contable ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "id_usuario_ai", "usuario_ai", "nombre_tipo_relacion", "codigo_tipo_relacion", "tiene_centro_costo", "tiene_partida", "tiene_auxiliar", "id_tabla_relacion_contable", "partida_tipo", "partida_rubro")
-VALUES 
+VALUES
   (1, NULL, E'2016-02-15 17:30:01.038', NULL, E'activo', NULL, NULL, E'Cuentas por Pagar por defecto', E'CXPDF', E'no', E'si', E'no', NULL, E'flujo', E'recurso'),
   (1, NULL, E'2016-02-15 17:27:50.168', NULL, E'activo', NULL, NULL, E'Cuentas por Cobrar defecto', E'CXCDF', E'no', E'si', E'no', NULL, E'flujo', E'gasto'),
   (1, NULL, E'2016-02-15 17:10:03.802', NULL, E'activo', NULL, NULL, E'Retención de anticipos en ventas por defecto', E'VRETANTD', E'no', E'si', E'no', NULL, E'flujo', E'recurso'),
   (1, NULL, E'2016-02-15 17:07:04.488', NULL, E'activo', NULL, NULL, E'Retencion de anticipo en compras por defecto', E'CMRETANTD', E'no', E'si', E'no', NULL, E'flujo', E'recurso'),
   (1, NULL, E'2016-02-15 17:04:27.022', NULL, E'activo', NULL, NULL, E'Retención de garantía en ventas por defecto', E'VRETGARDF', E'no', E'si', E'no', NULL, E'flujo', E'gasto'),
   (1, NULL, E'2016-02-15 17:02:12.003', NULL, E'activo', NULL, NULL, E'Retencion de garantia en compras por defecto', E'CMRETGARDF', E'no', E'si', E'no', NULL, E'flujo', E'recurso');
-  
-  
+
+
 
 
 SELECT pxp.f_update_table_sequence ('conta','tplantilla_comprobante');
@@ -1046,7 +1044,7 @@ select conta.f_import_tdetalle_plantilla_comprobante ('insert','VENTADOC','VENTA
 /* Data for the 'conta.ttipo_doc_compra_venta' table  (Records 1 - 10) */
 
 INSERT INTO conta.ttipo_doc_compra_venta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "id_usuario_ai", "usuario_ai", "codigo", "nombre", "tipo", "obs")
-VALUES 
+VALUES
   (1, NULL, E'2016-02-22 12:45:59.328', NULL, E'activo', NULL, E'NULL', E'1', E'mercado interno con destino a actividades gravadas', E'compra', E'Compras para mercado interno con destino a actividades gravadas'),
   (1, NULL, E'2016-02-22 12:46:17.472', NULL, E'activo', NULL, E'NULL', E'2', E'mercado interno con destino a actividades no gravadas,', E'compra', E'Compras para mercado interno con destino a actividades no gravadas'),
   (1, NULL, E'2016-02-22 12:46:51.278', NULL, E'activo', NULL, E'NULL', E'3', E'sujetas a proporcionalidad', E'compra', E'Compras sujetas a proporcionalidad, no se puede determinar si es 1  o 2'),
@@ -1057,27 +1055,27 @@ VALUES
   (1, NULL, E'2016-02-22 12:50:00.442', NULL, E'activo', NULL, E'NULL', E'E', E'EXTRAVIADA', E'venta', E'facturas extraviada'),
   (1, NULL, E'2016-02-22 12:50:14.012', NULL, E'activo', NULL, E'NULL', E'N', E'NO UTILIZADA', E'venta', E'NO UTILIZADA'),
   (1, 1, E'2016-02-22 12:50:25.858', E'2016-02-22 12:51:08.179', E'activo', NULL, E'NULL', E'C', E'EMITIDA POR CONTINGENCIA', E'venta', E'EMITIDA POR CONTINGENCIA, por corte de energía por ejemplo en el caso de ser emitida manualmente, necesitara un informe de justificación');
-  
-  
-  
- select pxp.f_insert_tgui ('Tipo Doc LCV', 'Tipo de documentos compra y venta', 'TIPLCV', 'si', 5, 'sis_contabilidad/vista/tipo_doc_compra_venta/TipoDocCompraVenta.php', 3, '', 'TipoDocCompraVenta', 'CONTA'); 
+
+
+
+ select pxp.f_insert_tgui ('Tipo Doc LCV', 'Tipo de documentos compra y venta', 'TIPLCV', 'si', 5, 'sis_contabilidad/vista/tipo_doc_compra_venta/TipoDocCompraVenta.php', 3, '', 'TipoDocCompraVenta', 'CONTA');
  select pxp.f_insert_testructura_gui ('TIPLCV', 'CONF');
-  
-  
+
+
 /***********************************F-DAT-RAC-CONTA-0-22/02/2016****************************************/
 
- 
+
 /***********************************I-DAT-RAC-CONTA-0-29/02/2016****************************************/
- 
-  
+
+
 /* Data for the 'pxp.variable_global' table  (Records 1 - 1) */
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_libro_compras_detallado', E'si', E'Si la interface de libro de compras permite el registro del detalle de la factura');
 
 /***********************************F-DAT-RAC-CONTA-0-29/02/2016****************************************/
- 
+
 
 
 
@@ -1095,23 +1093,23 @@ select pxp.f_insert_testructura_gui ('REPLCV', 'REPCON');
 /***********************************I-DAT-RAC-CONTA-0-22/03/2016*****************************************/
 
 INSERT INTO conta.ttabla_relacion_contable ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "id_usuario_ai", "usuario_ai", "id_tabla_relacion_contable", "tabla", "esquema", "tabla_id", "tabla_id_fk", "recorrido_arbol", "tabla_id_auxiliar", "tabla_codigo_auxiliar")
-VALUES 
+VALUES
   (1, NULL, E'2016-03-22 13:21:05.346', NULL, E'activo', NULL, NULL, 11, E'tfuncionario', E'ORGA', E'id_funcionario', E'', E'', E'', E'codigo');
-  
-  
+
+
 
 INSERT INTO conta.ttipo_relacion_contable ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "id_usuario_ai", "usuario_ai",  "nombre_tipo_relacion", "codigo_tipo_relacion", "tiene_centro_costo", "tiene_partida", "tiene_auxiliar", "id_tabla_relacion_contable", "partida_tipo", "partida_rubro")
-VALUES 
-  (1, NULL, E'2016-03-22 13:22:39.393', NULL, E'activo', NULL, NULL,  E'Cuenta por Rendir', E'CUEXREND', E'no', E'si', E'dinamico', 11, E'flujo', E'recurso_gasto');  
+VALUES
+  (1, NULL, E'2016-03-22 13:22:39.393', NULL, E'activo', NULL, NULL,  E'Cuenta por Rendir', E'CUEXREND', E'no', E'si', E'dinamico', 11, E'flujo', E'recurso_gasto');
 
 
 /* Data for the 'conta.ttipo_relacion_contable' table  (Records 1 - 1) */
 
 INSERT INTO conta.ttipo_relacion_contable ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "id_usuario_ai", "usuario_ai",  "nombre_tipo_relacion", "codigo_tipo_relacion", "tiene_centro_costo", "tiene_partida", "tiene_auxiliar", "id_tabla_relacion_contable", "partida_tipo", "partida_rubro")
-VALUES 
+VALUES
   (1, NULL, E'2016-03-24 14:46:07.159', NULL, E'activo', NULL, NULL,  E'Entrega de Dinero por Rendir', E'EDINXRENDIR', E'no', E'si', E'si', 11, E'flujo', E'gasto');
-  
-  
+
+
 /***********************************F-DAT-RAC-CONTA-0-22/03/2016*****************************************/
 
 
@@ -1128,13 +1126,13 @@ select param.f_import_tdocumento ('insert','CBT','Numero de Tramite Cbte','CONTA
 
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_codigo_macro_wf_cbte', E'CBT', E'codigo de proceso macro del WF de contabilidad');
-  
+
 
 /***********************************F-DAT-RAC-CONTA-0-25/05/2016*****************************************/
 
-  
+
 
 
 
@@ -1142,7 +1140,7 @@ VALUES
 
 
 ----------------------------------
---COPY LINES TO SUBSYSTEM data.sql FILE  
+--COPY LINES TO SUBSYSTEM data.sql FILE
 ---------------------------------
 
 select wf.f_import_tproceso_macro ('insert','CBT', 'CONTA', 'Comprobante','si');
@@ -1161,7 +1159,7 @@ select wf.f_import_testructura_estado ('insert','borrador','validado','CBTE',1,'
 
 
 ----------------------------------
---COPY LINES TO SUBSYSTEM dependencies.sql FILE  
+--COPY LINES TO SUBSYSTEM dependencies.sql FILE
 ---------------------------------
 
 select wf.f_import_ttipo_documento_estado ('insert','CBTE','CBTE','borrador','CBTE','crear','superior','');
@@ -1226,7 +1224,7 @@ select pxp.f_insert_tgui ('Balance de cuentas', 'Balance general', 'BALCON', 'si
 
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_ejecucion_igual_pres_conta', E'si', E'si o no, define si laejecucion presupuestaria sera igual a la contabe, ejemplo el caso de algunas empresas ejecutar el 100 % de las facturas y no solo el 13 %, en ese caso definir como no');
 
 
@@ -1248,63 +1246,63 @@ select pxp.f_insert_testructura_gui ('ORDARB', 'CROT');
 select pxp.f_insert_testructura_gui ('SUOINT', 'CROT');
 select pxp.f_insert_testructura_gui ('ODT', 'CROT');
 select pxp.f_insert_testructura_gui ('GRUOT', 'CROT');
-select pxp.f_insert_testructura_gui ('OFIOT', 'CROT');  
+select pxp.f_insert_testructura_gui ('OFIOT', 'CROT');
 
 
 
 /**********************************F-DAT-RAC-CONTA-1-15/05/2017*****************************************/
 
 
-/**********************************I-DAT-RAC-CONTA-1-26/05/2017*****************************************/  
+/**********************************I-DAT-RAC-CONTA-1-26/05/2017*****************************************/
 select pxp.f_insert_tgui ('<i class="fa fa-signal  fa-2x"></i> SISTEMA DE CONTABILIDAD', '', 'CONTA', 'si', 17, '', 1, '', '', 'CONTA');
 /**********************************F-DAT-RAC-CONTA-1-26/05/2017*****************************************/
 
-/**********************************I-DAT-RAC-CONTA-1-01/06/2017*****************************************/  
+/**********************************I-DAT-RAC-CONTA-1-01/06/2017*****************************************/
 select pxp.f_insert_tgui ('Balance de Ordenes de Costos', 'Balance de Ordenes de Costos', 'FBAOR', 'si', 5, 'sis_contabilidad/vista/cuenta/FormFiltroBalanceOrdenes.php', 3, '', 'FormFiltroBalanceOrdenes', 'CONTA');
 select pxp.f_insert_testructura_gui ('FBAOR', 'REPCON');
-/**********************************F-DAT-RAC-CONTA-1-01/06/2017*****************************************/  
+/**********************************F-DAT-RAC-CONTA-1-01/06/2017*****************************************/
 
 
 
-/**********************************I-DAT-RAC-CONTA-1-02/06/2017*****************************************/  
+/**********************************I-DAT-RAC-CONTA-1-02/06/2017*****************************************/
 select pxp.f_insert_tgui ('Registro de Cbte (Auxiliares)', 'Registro de Cbte (Auxiliares)', 'RECBTAX', 'si', 1, 'sis_contabilidad/vista/int_comprobante/IntComprobanteRegAux.php', 3, '', 'IntComprobanteRegAux', 'CONTA');
 select pxp.f_insert_testructura_gui ('RECBTAX', 'CBTE.1');
-/**********************************F-DAT-RAC-CONTA-1-02/06/2017*****************************************/  
+/**********************************F-DAT-RAC-CONTA-1-02/06/2017*****************************************/
 
 
 
-/**********************************I-DAT-RAC-CONTA-1-13/06/2017*****************************************/  
+/**********************************I-DAT-RAC-CONTA-1-13/06/2017*****************************************/
 
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
 VALUES  (E'conta_val_doc_venta', E'no', E'validar que el cbte cuadre con los documentos de venta');
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_val_doc_compra', E'no', E'validar que el cbte cuadre con los documentos de compra');
-  
-  
-/* Data for the 'pxp.variable_global' table  (Records 1 - 1) */
-
-INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
-  (E'conta_dif_doc_cbte', E'0.6', E'la difenrecia permitida al validar cbtes y documentos  facturas, invoice etc');  
-  
-/**********************************F-DAT-RAC-CONTA-1-13/06/2017*****************************************/  
-
-  
-
-
-/**********************************I-DAT-RAC-CONTA-1-19/06/2017*****************************************/  
 
 
 /* Data for the 'pxp.variable_global' table  (Records 1 - 1) */
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
+  (E'conta_dif_doc_cbte', E'0.6', E'la difenrecia permitida al validar cbtes y documentos  facturas, invoice etc');
+
+/**********************************F-DAT-RAC-CONTA-1-13/06/2017*****************************************/
+
+
+
+
+/**********************************I-DAT-RAC-CONTA-1-19/06/2017*****************************************/
+
+
+/* Data for the 'pxp.variable_global' table  (Records 1 - 1) */
+
+INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
+VALUES
   (E'conta_val_doc_otros_subcuentas_compras', E'INVERSION,ACTIVO FIJO,ALMACENES,OTROS ACTIVOS', E'Nombre de subcuenta que tienen que incluirse en la validacion de documentos de compras,al vaidar cbte, se las separa por comas');
-  
-/**********************************F-DAT-RAC-CONTA-1-19/06/2017*****************************************/  
+
+/**********************************F-DAT-RAC-CONTA-1-19/06/2017*****************************************/
  /**********************************I-DAT-MMV-CONTA-1-28/06/2017*****************************************/
  select pxp.f_insert_tgui ('Resolución 101700000010', 'Resolución 101700000010', 'RESO', 'si', 11, '', 3, '', '', 'CONTA');
  select pxp.f_insert_tgui ('Comisionistas', 'Comisionistas', 'COMISI', 'si', 1, 'sis_contabilidad/vista/comisionistas/Comisionistas.php', 4, '', 'Comisionistas', 'CONTA');
@@ -1342,7 +1340,7 @@ select pxp.f_insert_testructura_gui ('BATCC', 'REPCON');
 /* Data for the 'conta.ttipo_relacion_contable' table  (Records 1 - 4) */
 
 INSERT INTO conta.ttipo_relacion_contable ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "id_usuario_ai", "usuario_ai", "nombre_tipo_relacion", "codigo_tipo_relacion", "tiene_centro_costo", "tiene_partida", "tiene_auxiliar", "partida_tipo", "partida_rubro", "id_tabla_relacion_contable")
-VALUES 
+VALUES
   (1, NULL, E'2017-07-20 15:14:51.622', NULL, E'activo', NULL, NULL, E'Ajuste AITB al debe', E'AJT_AITB_DEBE', E'no', E'si', E'no', E'flujo_presupuestaria', E'recurso_gasto', NULL),
   (1, NULL, E'2017-07-20 15:15:23.220', NULL, E'activo', NULL, NULL, E'Ajuste AITB  al haber', E'AJT_AITB_HABER', E'no', E'si', E'no', E'flujo_presupuestaria', E'recurso_gasto', NULL),
   (1, NULL, E'2017-07-20 15:32:34.246', NULL, E'activo', NULL, NULL, E'Gasto por AITB', E'GASTO_AITB', E'no', E'si', E'no', E'flujo', E'gasto', NULL),
@@ -1360,7 +1358,7 @@ select pxp.f_insert_testructura_gui ('ESTCUNT', 'REPCON');
 
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_lista_blanca_cbte_docs', E'RENDICIONFONDO,RENCAJA', E'Lista de codigos de plnatillas de cbte, que se saltara la validacion de documentos de compra /venta');
 
 
@@ -1374,7 +1372,7 @@ VALUES
 /* Data for the 'pxp.variable_global' table  (Records 1 - 1) */
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_ajustar_tipo_cambio_cbte_rel', E'no', E'ajustar automaticamente diferencia por tipo de cambio en trasaccion y comprobantes reacionados');
 
 
@@ -1393,48 +1391,48 @@ VALUES (E'conta_filtrar_cuenta_por_tipo_cc_interface_junior', E'no', E'esta vari
 
 /***********************************F-DAT-RAC-CONTA-0-08/09/2017*****************************************/
 
-/***********************************I-DAT-MANU-CONTA-0-25/09/2017*****************************************/ 
+/***********************************I-DAT-MANU-CONTA-0-25/09/2017*****************************************/
 select pxp.f_insert_tgui ('Reporte Retencion', 'Reporte Retencion', 'REPRET', 'si', 13, 'sis_contabilidad/reportes/formularios/LibroComprasVentasRetenciones.php', 3, '', 'ReporteRetenciones', 'CONTA');
-/***********************************F-DAT-MANU-CONTA-0-25/09/2017*****************************************/                          
+/***********************************F-DAT-MANU-CONTA-0-25/09/2017*****************************************/
 
 
 
-/***********************************I-DAT-RAC-CONTA-0-22/12/2017*****************************************/ 
+/***********************************I-DAT-RAC-CONTA-0-22/12/2017*****************************************/
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_libro_ventas_detallado', E'si', E'Si la interface de libro de ventas permite el registro del detalle de la factura');
-  
+
   /* Data for the 'pxp.variable_global' table  (Records 1 - 1) */
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_forzar_validacion_documentos', E'si', E'cuando se fuera la validacion no permite validar el cbte si los datos o cudran, en caso contrario deja al usuario decidir');
-  
-  
+
+
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_revertir_iva_comprometido', E'no', E'Por dfecto no revierte el iva comprometido, asumiendo que la solictud fue hecha sobre el valor NETO');
 
-/***********************************F-DAT-RAC-CONTA-0-22/12/2017*****************************************/ 
+/***********************************F-DAT-RAC-CONTA-0-22/12/2017*****************************************/
 
-/***********************************I-DAT-JUAN-CONTA-0-03/04/2017*****************************************/ 
+/***********************************I-DAT-JUAN-CONTA-0-03/04/2017*****************************************/
 select pxp.f_insert_tgui ('Diferencias en libros contables', 'Diferencias en libros contables', 'COLM', 'si', 12, 'sis_contabilidad/reportes/formularios/Dif_libro_contables.php', 3, '', 'Dif_libro_contables', 'CONTA');
 
 select pxp.f_insert_testructura_gui ('COLM', 'REPCON');
 
-/***********************************F-DAT-JUAN-CONTA-0-03/04/2017*****************************************/ 
+/***********************************F-DAT-JUAN-CONTA-0-03/04/2017*****************************************/
 
 
 
-/***********************************I-DAT-RAC-CONTA-0-08/05/2018*****************************************/ 
+/***********************************I-DAT-RAC-CONTA-0-08/05/2018*****************************************/
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_solictar_codigo_aplicacion_doc', E'no', E'Para odcumentos de venta al generar comprobante solo considerar los documneots con codigo de aplicacion');
-  
+
   ----------------------------------
---COPY LINES TO SUBSYSTEM data.sql FILE  
+--COPY LINES TO SUBSYSTEM data.sql FILE
 ---------------------------------
 
 select param.f_import_tcatalogo_tipo ('insert','tipo_venta','CONTA','tdoc_compra_venta');
@@ -1445,12 +1443,12 @@ select param.f_import_tcatalogo ('insert','CONTA','Servicios a Terceros','tercer
 select param.f_import_tcatalogo ('insert','CONTA','Servicios Empresas del Grupo','servicos_grupo','tipo_venta');
 
 
-/***********************************F-DAT-RAC-CONTA-0-08/05/2018*****************************************/ 
+/***********************************F-DAT-RAC-CONTA-0-08/05/2018*****************************************/
 
 
 
 
-/***********************************I-DAT-RAC-CONTA-0-29/05/2018*****************************************/ 
+/***********************************I-DAT-RAC-CONTA-0-29/05/2018*****************************************/
 
 
 select pxp.f_insert_tgui ('Estado de Auxiliares', 'Estado de Auxiliares', 'EXUMAY', 'si', 10, 'sis_contabilidad/vista/int_transaccion/FormFiltroAuxiliarMayor.php', 3, '', 'FormFiltroAuxiliarMayor', 'CONTA');
@@ -1467,9 +1465,9 @@ select pxp.f_insert_testructura_gui ('REGUCON', 'CONTA');
 select pxp.f_insert_testructura_gui ('REFAREG', 'REGUCON');
 
 
-/***********************************F-DAT-RAC-CONTA-0-29/05/2018*****************************************/ 
+/***********************************F-DAT-RAC-CONTA-0-29/05/2018*****************************************/
 
-/***********************************I-DAT-EGS-CONTA-0-27/09/2018*****************************************/ 
+/***********************************I-DAT-EGS-CONTA-0-27/09/2018*****************************************/
 
 select conta.f_import_tplantilla_comprobante ('insert','CBRRG','cbr.f_gestionar_cbte_cobro_simple_eliminacion','id_cobro_simple','CBR','{$tabla.obs}','cbr.f_gestionar_cbte_cobro_simple','{$tabla.fecha}','activo','{$tabla.desc_proveedor}','{$tabla.id_depto_conta}','contable','','cbr.vcobro_simple_cbte','INGRESOCON','{$tabla.id_moneda}','{$tabla.id_gestion}','{$tabla.id_moneda},{$tabla.id_gestion},{$tabla.id_depto_conta},{$tabla.id_cobro_simple},{$tabla.id_cuenta_bancaria},{$tabla.id_funcionario},{$tabla.id_proveedor},{$tabla.importe},{$tabla.importe_mb},{$tabla.id_proveedor},{$tabla.importe_mt},{$tabla.tipo_cambio},{$tabla.tipo_cambio_ma},{$tabla.tipo_cambio_mt},{$tabla.id_config_cambiaria}','no','no','no','{$tabla.id_cuenta_bancaria}','','0','0','{$tabla.nro_tramite}','{$tabla.tipo_cambio}','{$tabla.id_depto_lb}','','','','Cobro de clientes Retencion Garantias','','','{$tabla.tipo_cambio_mt}','{$tabla.tipo_cambio_ma}','{$tabla.id_config_cambiaria}');
 select conta.f_import_tdetalle_plantilla_comprobante ('insert','CBRRG','INGREBAN','debe','si','si','','{$tabla_padre.desc_proveedor}','CUEBANCING','','{$tabla_padre.importe}','{$tabla_padre.id_cuenta_bancaria}','','no','','','','si','','','','Ingreso de Bancos','{$tabla_padre.importe}',NULL,'simple','','','no','','{$tabla_padre.id_cuenta_bancaria}','','0','0','','{$tabla_padre.desc_proveedor}','2','','',NULL,'deposito','','','');
@@ -1477,33 +1475,33 @@ select conta.f_import_tdetalle_plantilla_comprobante ('insert','CBRRG','CUXCORGH
 
 
 
-/***********************************F-DAT-EGS-CONTA-0-27/09/2018*****************************************/ 
+/***********************************F-DAT-EGS-CONTA-0-27/09/2018*****************************************/
 
 
-/***********************************I-DAT-RAC-CONTA-0-06/11/2018*****************************************/ 
+/***********************************I-DAT-RAC-CONTA-0-06/11/2018*****************************************/
 
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_cod_plan_nota_credito', E'NOTACREDITODOC', NULL);
-  
-  
-INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
-  (E'conta_cod_plan_nota_debito', E'NOTADEBITODOC', NULL);
-  
-  
-  
-INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
-  (E'conta_migrar_rc_concepto_version', E'no', E'al apretar el boton para migrar relacion contable de una gestion a otra, si esta habilita insertara la nuevas relacion en funcion a la tabla conceptos_ids\r\n');
-  
-  
-  
-  
-/***********************************F-DAT-RAC-CONTA-0-06/11/2018*****************************************/ 
 
-/***********************************I-DAT-EGS-CONTA-1-30/11/2018*****************************************/ 
+
+INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
+VALUES
+  (E'conta_cod_plan_nota_debito', E'NOTADEBITODOC', NULL);
+
+
+
+INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
+VALUES
+  (E'conta_migrar_rc_concepto_version', E'no', E'al apretar el boton para migrar relacion contable de una gestion a otra, si esta habilita insertara la nuevas relacion en funcion a la tabla conceptos_ids\r\n');
+
+
+
+
+/***********************************F-DAT-RAC-CONTA-0-06/11/2018*****************************************/
+
+/***********************************I-DAT-EGS-CONTA-1-30/11/2018*****************************************/
 
 
 select param.f_import_tcatalogo_tipo ('insert','tauxiliar','CONTA','tauxiliar');
@@ -1529,7 +1527,7 @@ select param.f_import_tcatalogo ('insert','CONTA','Alquiler de Parqueo al Person
 select param.f_import_tcatalogo ('insert','CONTA','Intereses por prestamos al personal','intereses','tipo_venta_nota_debito');
 select param.f_import_tcatalogo ('insert','CONTA','Cobro Clientes por Peaje','cbr_peaje','tipo_venta_nota_debito');
 
-/***********************************F-DAT-EGS-CONTA-1-30/11/2018*****************************************/ 
+/***********************************F-DAT-EGS-CONTA-1-30/11/2018*****************************************/
 
 /***********************************I-DAT-MMV-CONTA-92-19/12/2018*****************************************/
 select pxp.f_insert_tgui ('Movimiento de Auxiliares', 'Movimiento de Auxiliares', 'MOVSAL', 'si', 12, '', 2, '', '', 'CONTA');
@@ -1654,7 +1652,7 @@ select conta.f_import_tdetalle_plantilla_comprobante ('insert','PAGTESPROV','REG
 
 /***********************************I-DAT-RAC-CONTA-53-20/05/2019****************************************/
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_generar_pago_planilla', E'SI', E'habilitar pagos de planilla, por ejemplo No cuando se paga por la CUT');
 /***********************************F-DAT-RAC-CONTA-53-20/05/2019****************************************/
 
@@ -1666,7 +1664,7 @@ select pxp.f_insert_testructura_gui ('CTP', 'CONF');
 /***********************************I-DAT-EGS-CONTA-05-29/05/2019****************************************/
 
 INSERT INTO pxp.variable_global ("variable", "valor", "descripcion")
-VALUES 
+VALUES
   (E'conta_host_migracion', E'hostaddr=172.18.79.XXXX port=5432 dbname=db user=dbamigracion password=dbamigracion', E'configuracion para la conexion para migrar el comprobante al host mencionado'),
   (E'conta_migrar_comprobante', E'false', E'habilita migracion de comprobantes validados a centro de costo seleccionados');
 
@@ -1690,3 +1688,455 @@ WHERE tipo_cuenta = 'gasto';
 INSERT INTO conta.tconfig_tipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "nro_base", "tipo_cuenta")
 VALUES (1, NULL, E'2013-02-26 15:38:52.716', NULL, E'activo', 4, E'orden');
 /***********************************F-DAT-RCM-CONTA-0-04/09/2019*****************************************/
+
+/***********************************I-DAT-RCM-CONTA-0-09/10/2019*****************************************/
+----------------------------------
+--COPY LINES TO SUBSYSTEM data.sql FILE
+---------------------------------
+
+select conta.f_import_tplantilla ('insert','Compra con Credito Fiscal','si','si','3','1','no','si','si','si','compra','no','no','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal','Neto','1','debe','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal','IVA','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+
+select conta.f_import_tplantilla ('insert','Venta con Debito Fiscal','si','si','5','1','no','no','si','si','venta','no','no','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Venta con Debito Fiscal','IVA-DF','2','haber','porcentaje','IVA-DF','0.13','0.13','no');
+select conta.f_import_tplantilla_calculo ('insert','Venta con Debito Fiscal','ITxPagar','2','haber','porcentaje','ITxPagar','0.03','0.03','no');
+select conta.f_import_tplantilla_calculo ('insert','Venta con Debito Fiscal','Neto','1','haber','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Venta con Debito Fiscal','IT','2','debe','porcentaje','IT','0.03','0.03','no');
+
+
+
+select conta.f_import_tplantilla ('insert','Compra sin Derecho Credito Fiscal (Factura ZF)','si','si','1','1','si','si','si','si','compra','no','no','porcentual','1','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Compra sin Derecho Credito Fiscal (Factura ZF)','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra sin Derecho Credito Fiscal (Factura ZF)','origen fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Recibo sin Retenciones','si','si','1','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo sin Retenciones','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo sin Retenciones','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Recibo con Retenciones Bienes','si','si','4','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Bienes','IUE Retenciones','2','haber','porcentaje','IUE-RET-BIE','0.05','0.05','si');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Bienes','origen de fondos','3','haber','porcentaje',NULL,'0.92','0.92','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Bienes','IT retenciones','2','haber','porcentaje','IT-RET-BIE','0.03','0.03','si');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Bienes','Neto','1','debe','porcentaje','','1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Recibo con Retenciones Servicios','si','si','4','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Servicios','Neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Servicios','IUE Retenciones','2','haber','porcentaje','IUE-RET-SERV','0.125','0.125','si');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Servicios','origen de fondos','3','haber','porcentaje',NULL,'0.845','0.845','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Servicios','IT retenciones','2','haber','porcentaje','IT-RET-SER','0.03','0.03','si');
+
+
+select conta.f_import_tplantilla ('insert','Recibo con Retenciones Bienes - ZF','si','si','1','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Bienes - ZF','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Bienes - ZF','RETENCION IUE','2','haber','porcentaje','IUE-RET-BIE','0.5','0.5','si');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Bienes - ZF','origen de fondo','3','haber','porcentaje',NULL,'0.95','0.95','no');
+
+
+select conta.f_import_tplantilla ('insert','Recibo con Retenciones Servicios - ZF','si','si','1','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Servicios - ZF','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Servicios - ZF','IUE Retenciones','2','haber','porcentaje','IUE-RET-SERV','0.125','0.125','si');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones Servicios - ZF','origen de fondos','3','haber','porcentaje',NULL,'0.875','0.875','no');
+
+
+select conta.f_import_tplantilla ('insert','Retenciones RC-IVA (Directores, Otros)','si','si','1','4','si','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Retenciones RC-IVA (Directores, Otros)','RETENCION RC-IVA','2','haber','porcentaje','RC-IVA-DIR','0.13','0.13','si');
+select conta.f_import_tplantilla_calculo ('insert','Retenciones RC-IVA (Directores, Otros)','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Retenciones RC-IVA (Directores, Otros)','origen de fondos','3','haber','porcentaje',NULL,'0.84','0.84','no');
+select conta.f_import_tplantilla_calculo ('insert','Retenciones RC-IVA (Directores, Otros)','RETENCION IT','2','haber','porcentaje','IT-RET','0.03','0.03','si');
+
+
+
+select conta.f_import_tplantilla ('insert','Proforma de Factura','si','si','3','3','no','no','no','no','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','Proforma de Factura','Neto','1','debe','porcentaje',NULL,'0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Proforma de Factura','Origen de Fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Proforma de Factura','IVA POR APLICAR','2','debe','porcentaje','IVA-CF-PA','0.13','0.13','no');
+
+
+select conta.f_import_tplantilla ('insert','Recibo con Retenciones de Alquiler','si','si','3','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones de Alquiler','RC-IVA','2','haber','porcentaje','RC-IVA','0.13','0.13','si');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones de Alquiler','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones de Alquiler','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones de Alquiler','IT retenciones','2','haber','porcentaje','IT-RET-ALQ','0.03','0.03','si');
+
+
+select conta.f_import_tplantilla ('insert','Recibo de Alquiler (Con crédito Fiscal)','si','si','3','3','no','no','no','no','compra','no','no','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Recibo de Alquiler (Con crédito Fiscal)','neto','1','debe','porcentaje',NULL,'0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo de Alquiler (Con crédito Fiscal)','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo de Alquiler (Con crédito Fiscal)','IVA POR APLICAR','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+
+
+select conta.f_import_tplantilla ('insert','Póliza de Importación - DUI','si','si','1','1','no','no','si','no','compra','si','no','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Póliza de Importación - DUI','origen de fondos','3','haber','porcentaje','','1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Póliza de Importación - DUI','Neto','1','debe','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Póliza de Importación - DUI','IVA','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+
+
+select conta.f_import_tplantilla ('insert','Compra con Credito Fiscal Combustible (Vehiculos)','si','si','2','1','si','si','si','si','compra','no','no','porcentual','0.3','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal Combustible (Vehiculos)','Origen de fondo','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal Combustible (Vehiculos)','IVA','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal Combustible (Vehiculos)','neto','1','debe','porcentaje','','0.87','0.87','no');
+
+
+
+select conta.f_import_tplantilla ('insert','Recibo sin Retenciones Transporte','si','si','1','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo sin Retenciones Transporte','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo sin Retenciones Transporte','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Compra con Credito Fiscal ICE','si','si','3','1','si','si','si','si','compra','no','si','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal ICE','neto','1','debe','porcentaje',NULL,'0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal ICE','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal ICE','IVA CF','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+
+
+select conta.f_import_tplantilla ('insert','Facturas No Declaradas','si','si','3','1','no','si','si','si','compra','no','no','porcentual','1','otros');
+select conta.f_import_tplantilla_calculo ('insert','Facturas No Declaradas','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Facturas No Declaradas','Neto','1','debe','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Facturas No Declaradas','IVA no deducible','2','debe','porcentaje','IVA-NO-DEC','0.13','0.13','no');
+
+
+select conta.f_import_tplantilla ('insert','INVOICE (EXTERIOR - IUE/BE)','si','si','1','4','si','no','no','no','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','INVOICE (EXTERIOR - IUE/BE)','Neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','INVOICE (EXTERIOR - IUE/BE)','RET-IUE/BE','2','haber','porcentaje','RET-IUE/BE','0.125','0.125','si');
+select conta.f_import_tplantilla_calculo ('insert','INVOICE (EXTERIOR - IUE/BE)','origen de fondo','3','haber','porcentaje',NULL,'0.875','0.875','no');
+
+
+select conta.f_import_tplantilla ('insert','INVOICE EXTERIOR','si','si','1','4','no','no','no','no','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','INVOICE EXTERIOR','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','INVOICE EXTERIOR','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Compra con Credito Fiscal con Exento (Energia, ETC)','si','si','1','1','si','si','si','si','compra','no','no','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal con Exento (Energia, ETC)','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal con Exento (Energia, ETC)','IVA CF','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal con Exento (Energia, ETC)','Neto','1','debe','porcentaje','','0.87','0.87','no');
+
+
+select conta.f_import_tplantilla ('insert','Compra con Credito Fiscal Gest Ant','si','si','1','1','no','si','si','si','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal Gest Ant','Neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Compra con Credito Fiscal Gest Ant','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Recibo con Retenciones de Alquiler - ZF','si','si','3','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones de Alquiler - ZF','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones de Alquiler - ZF','RC-IVA','2','haber','porcentaje','RC-IVA','0.13','0.13','si');
+select conta.f_import_tplantilla_calculo ('insert','Recibo con Retenciones de Alquiler - ZF','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Facturas por Comisiones','si','si','1','1','si','no','si','si','compra','no','no','variable','0','lcv');
+
+
+select conta.f_import_tplantilla ('insert','Vale Provisorio','no','no',NULL,NULL,'no','no','no','no','compra','no','no','variable','0','efectivo');
+select conta.f_import_tplantilla_calculo ('insert','Vale Provisorio','Entrega efectivo','1','debe','porcentaje','EDINXRENDIR','1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Pasajes  CON Credito Fiscal y Excento (NACIONALES)','si','si','3','1','si','si','si','si','compra','no','no','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes  CON Credito Fiscal y Excento (NACIONALES)','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes  CON Credito Fiscal y Excento (NACIONALES)','IVA','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes  CON Credito Fiscal y Excento (NACIONALES)','Neto','1','debe','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes  CON Credito Fiscal y Excento (NACIONALES)','VIATICO EXCENTO','2','debe','porcentaje','VIAT-EXC','1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Pasajes SIN Credito Fiscal (INTERNACIONALES)','si','si','1','4','no','no','no','no','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes SIN Credito Fiscal (INTERNACIONALES)','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes SIN Credito Fiscal (INTERNACIONALES)','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','PASAJES (Prestamos Funcionario)','si','si',NULL,NULL,'no','no','no','no','compra','no','no','constante','1','otros');
+select conta.f_import_tplantilla_calculo ('insert','PASAJES (Prestamos Funcionario)','Funcionarios Por Cobrar','1','debe','porcentaje','PRESFUN','1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Recibo sin Retenciones Viaticos','si','si','1','2','no','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Recibo sin Retenciones Viaticos','neto','1','debe','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo sin Retenciones Viaticos','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+
+
+select conta.f_import_tplantilla ('insert','Pasajes  CON Credito Fiscal y Excento (INTERNACIONALES)','si','si','3','1','si','si','si','si','compra','no','no','variable','0','lcv');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes  CON Credito Fiscal y Excento (INTERNACIONALES)','origen de fondos','3','haber','porcentaje',NULL,'1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes  CON Credito Fiscal y Excento (INTERNACIONALES)','Neto','1','debe','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Pasajes  CON Credito Fiscal y Excento (INTERNACIONALES)','IVA','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+
+
+
+select conta.f_import_tplantilla ('insert','Recibo de FALLAS de Caja','si','si',NULL,NULL,'no','no','no','no','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','Recibo de FALLAS de Caja','FALLAS-CAJA','2','debe','porcentaje','FALLAS-CAJA','1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo de FALLAS de Caja','origen de fondos','3','haber','porcentaje','','1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Recibo de FALLAS de Caja','Neto','1','debe','porcentaje','','1','1','no');
+
+
+
+select conta.f_import_tplantilla ('insert','Retenciones RC-IVA (Personal Retirado)','si','si','1','4','si','no','no','no','compra','no','no','variable','0','retenciones');
+select conta.f_import_tplantilla_calculo ('insert','Retenciones RC-IVA (Personal Retirado)','RETENCION RC-IVA','2','haber','porcentaje','RC-IVA-DIR','0.13','0.13','si');
+select conta.f_import_tplantilla_calculo ('insert','Retenciones RC-IVA (Personal Retirado)','origen de fondos','3','haber','porcentaje',NULL,'0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Retenciones RC-IVA (Personal Retirado)','neto','1','debe','porcentaje',NULL,'1','1','no');
+
+
+
+select conta.f_import_tplantilla ('insert','Notas de Crédito Fiscal Sobre Ventas','si','si','6','4','no','no','si','si','compra','no','no','variable','0','ncd');
+select conta.f_import_tplantilla_calculo ('insert','Notas de Crédito Fiscal Sobre Ventas','IVA-CF','2','debe','porcentaje','IVA-CF','0.13','0.13','no');
+select conta.f_import_tplantilla_calculo ('insert','Notas de Crédito Fiscal Sobre Ventas','Cuentas por pagar','3','haber','porcentaje','CUXPAGARNOTAS','1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Notas de Crédito Fiscal Sobre Ventas','Perdida por devolución','1','debe','porcentaje','','0.87','0.87','no');
+
+
+
+select conta.f_import_tplantilla ('insert','Notas de Debito Fiscal Sobre Compras','si','si','6','4','no','no','si','si','venta','no','no','variable','0','ncd');
+select conta.f_import_tplantilla_calculo ('insert','Notas de Debito Fiscal Sobre Compras','ingreso por devolucion','1','haber','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Notas de Debito Fiscal Sobre Compras','IVA-DF','2','haber','porcentaje','IVA-DF','0.13','0.13','no');
+select conta.f_import_tplantilla_calculo ('insert','Notas de Debito Fiscal Sobre Compras','cuentas por cobrar','3','debe','porcentaje','CUXCOBRARNOTAS','1','1','no');
+
+
+
+select conta.f_import_tplantilla ('insert','Venta con Debito Fiscal (Regularizado no entra a libros LCV)','si','si','5','1','no','no','si','si','venta','no','no','variable','0','regularizacion');
+
+
+select conta.f_import_tplantilla ('insert','Factura no Deducible','si','si','3','1','no','si','si','si','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','Factura no Deducible','Neto','1','debe','porcentaje','','0.87','0.87','no');
+select conta.f_import_tplantilla_calculo ('insert','Factura no Deducible','Origen Fondos','3','haber','porcentaje','','1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Factura no Deducible','IVA no Deducible','2','debe','porcentaje','IVA-NO-DEDUC','0.13','0.13','no');
+
+
+select conta.f_import_tplantilla ('insert','Factura con Tazas','si','si',NULL,NULL,'no','no','no','no','compra','no','no','variable','0','otros');
+select conta.f_import_tplantilla_calculo ('insert','Factura con Tazas','Neto','1','debe','taza','','1','1','no');
+select conta.f_import_tplantilla_calculo ('insert','Factura con Tazas','impuesto','2','debe','taza','','1','1','no');
+
+--Relaciones contables
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-CF',NULL,'IVA- CF','activo','no','si','si','flujo_presupuestaria','recurso_gasto','no','no','no','');
+
+
+select conta.f_import_ttipo_relacion_contable ('insert','IT-RET',NULL,'Retenciones IT','activo','si-general','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IUE-RET-BIE',NULL,'Retencion de IUE por compra de bienes','activo','si-general','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-CF-PA',NULL,'IVA-CF por aplicar devengado','activo','no','si','si','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','RET-IUE/BE',NULL,'Retenciones por pagos de beneficiarios al exterior','activo','no','si','si','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','RC-IVA',NULL,'RETENCION RC-IVA','activo','si-general','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IUE-RET-SERV',NULL,'Retencion de IUE por compra de servicios','activo','si-general','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-CF-GA',NULL,'IVA-CF-GA','activo','no','si','si','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-CF-ANT',NULL,'Ivas periodos anteriores','activo','no','si','si','flujo','recurso_gasto','no','no','no',NULL);
+
+
+select conta.f_import_ttipo_relacion_contable ('insert','BANVIAOPE',NULL,'Bancos Viatico Operativo','activo','no','si','si','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVAVIAOPE',NULL,'RC-IVA Viáticos Operativos','activo','no','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CUT',NULL,'Fondos en la cut','activo','no','si','si','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PER-RD',NULL,'Perdida por redondeo','activo','si-unico','si','no','flujo_presupuestaria','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','GAN-RD',NULL,'Ganancia por redondeo','activo','si-unico','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PER-DCB',NULL,'Perdida por tipo de cambio','activo','si-unico','si','no','flujo_presupuestaria','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','GAN-DCB',NULL,'Ganancia por tipo de cambio','activo','si-unico','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-DUI',NULL,'IVA IPORTACIONES','activo','no','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-DF',NULL,'IVA-DF','activo','no','si','si','presupuestaria','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IT',NULL,'IT','activo','no','si','si','presupuestaria','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','ITxPagar',NULL,'IT por pagar','activo','no','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CMPDEF',NULL,'Compras por defecto','activo','no','si','si','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','VENDEF',NULL,'Cuenta de Banco para ventas por defecto','activo','si-general','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CXPDF',NULL,'Cuentas por Pagar por defecto','activo','no','si','no','flujo','recurso','no','no','no',NULL);
+
+
+select conta.f_import_ttipo_relacion_contable ('insert','CXCDF',NULL,'Cuentas por Cobrar defecto','activo','no','si','no','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','VRETANTD',NULL,'Retención de anticipos en ventas por defecto','activo','no','si','no','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CMRETANTD',NULL,'Retencion de anticipo en compras por defecto','activo','no','si','no','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','VRETGARDF',NULL,'Retención de garantía en ventas por defecto','activo','no','si','no','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CMRETGARDF',NULL,'Retencion de garantia en compras por defecto','activo','no','si','no','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AEROVIAADM',NULL,'Retencion Viaticos Aeropuerto','activo','no','si','no','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','TRANVIAADM',NULL,'Retenciones Transitorias Viaticos','activo','no','si','si','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVAVIAADM',NULL,'IVA Viatico Administrativo','activo','no','si','si','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','BANVIAOPEDIS',NULL,'Banco Viativos Operativo Debe','activo','no','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVAVIAOPEDIS',NULL,'Disminucion RC-IVA Viaticos Operativos','activo','no','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVAVIAADMDIS',NULL,'Disminucion IVA Viatico Administrativo','activo','no','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AEROVIAADMDIS',NULL,'Disminucion retencion viaticos aeropuerto','activo','no','si','no','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','TRANVIAADMDIS',NULL,'Disminucion de Retenciones TRansitorias Viaticos','activo','no','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AJT_AITB_DEBE',NULL,'Ajuste AITB al debe','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AJT_AITB_HABER',NULL,'Ajuste AITB  al haber','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','GASTO_AITB',NULL,'Gasto por AITB','activo','no','si','no','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','RECURSO_AITB',NULL,'Recurso AITB','activo','no','si','no','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-TRAN-H',NULL,'Activos fijos en tránsito para el Haber','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','GAN-AITB',NULL,'Ganancia por Actualización y tenencia de bienes','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PER-AITB',NULL,'Perdida por Actualización y tenencia de bienes','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PER-RETIRO',NULL,'Perdida Retiro de Activos Fijos','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-ACTIVO-H',NULL,'Activos Fijos que van al HABER','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AF-PER-BAJA',NULL,'Perida Baja de Activos Fijos','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-CTA-COBRAR',NULL,'Otras cuentas por cobrar','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-BAJA-ING',NULL,'Ingreso por Baja por Informe de Activos Fijos','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-REVAL',NULL,'Reserva por revaluo técnico','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PROVI',NULL,'Recibo Provisorio','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CC-IT-XX',NULL,'Centro de costo para el gasto de IT en ventas','activo','si-unico','no','no','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','VIAT-EXC',NULL,'Viatico Exento','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','si',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','SABSA',NULL,'Anticipo SABSA (Internacionales)','activo','si-general','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IT-RET-BIE',NULL,'IT Renciones de Bienes','activo','si','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IT-RET-SER',NULL,'IT Retenciones Servicios','activo','si-general','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IT-RET-ALQ',NULL,'IT Retenciones Alquilares','activo','si-general','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','FALLAS-CAJA',NULL,'Fallas de Cajas Por Cobrar','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','RC-IVA-DIR',NULL,'RETENCION RC-IVA DIRECTORES','activo','si-general','si','si','flujo','recurso','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AJT_CAPPAT_DEBE',NULL,'AJUSTE CAPITAL DE PATRIMONIO AL DEBE','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AJT_CAPPAT_HAB',NULL,'Ajuste por capital de patrimonio al HABER','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','GASTO_CAPPAT',NULL,'Gasto por Actualización de Capital de Patrimoniales','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','RECURSO_CAPPAT',NULL,'Recursos por ajuste de  Capital de Patrimoniales','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AJT_RESPAT_DEBE',NULL,'AJUSTE RESERVAS DE PATRIMONIO AL DEBE','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','AJT_RESPAT_HAB',NULL,'Ajuste por reservas de patrimonio al HABER','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','GASTO_RESPAT',NULL,'Gasto por Reservas Patrimoniales','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','RECURSO_RESPAT',NULL,'Recursos por Reservas Patrimoniales','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','DEPGASTO',NULL,'Depreciación del gasto al Haber','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','DEPACTIVO',NULL,'Depreciación Activo al Haber','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-BAJA',NULL,'Baja General (al Debe)','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-BAJA-GESANT',NULL,'Baja Gestiones Anteriores','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','KAF-ACT-DEPER',NULL,'Actualización Depreciación Periodo','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PRO-CIEREV',NULL,'Proyectos Cierre Reversión AITB anterior gestión','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PRO-CIEREVACT',NULL,'Cierre Proyectos Reversión Actualización','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CONALM',NULL,'Contabilización Almacenes SIGEMA','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','si',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PRO-CIEGANT',NULL,'Cierre de Proyectos, cuenta para gasto','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-NO-DEC',NULL,'IVA no declarado','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-XCOBFUN',NULL,'IVA por cobrar al Funcionario','activo','si-unico','si','no','flujo','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','IVA-NO-DEDUC',NULL,'IVA no deducible','activo','si-unico','si','no','presupuestaria','gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CIER-DEBE',NULL,'Cierre de cuentas debe','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','CIER-HABER',NULL,'Cierre de cuenta haber','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','APER-DEBE',NULL,'Apertura de cuentas debe','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','APER-HABER',NULL,'Apertura de cuentas Haber','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','INCAPTEMP',NULL,'Incapacidad Temporal por Cobrar','activo','no','si','si','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','SALXPALI',NULL,'Salario por Aplicar','activo','no','si','no','flujo','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PAGOPLANI',NULL,'Cuenta pago planillas','activo','no','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PRO-CIECBTE1',NULL,'Cierre Proyectos Comprobante 1 y 3, solo se usará la Partida','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+select conta.f_import_ttipo_relacion_contable ('insert','PRO-CIECB3NEG',NULL,'Cierre Proyectos Cbte 3 saldos negativos','activo','no','si','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+
+
+select conta.f_import_ttabla_relacion_contable ('insert','TCON','activo','tconcepto_ingas','PARAM','id_concepto_ingas','','','','','');
+select conta.f_import_ttipo_relacion_contable ('insert','DEVCOMPRA','TCON','Devoluciones sobre compras','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','si','');
+select conta.f_import_ttipo_relacion_contable ('insert','DEVVENTA','TCON','Devoluciones sobre Ventas','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','si','');
+select conta.f_import_ttipo_relacion_contable ('insert','PAGOES','TCON','Pagos Especiales (Partidas de Flujo)','activo','si-general','si','no','flujo','gasto','no','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUECOMP','TCON','Cuenta para realizar compras','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','si','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUEVENT','TCON','Cuenta para realizar ventas','activo','si-general','si','no','flujo_presupuestaria','recurso','no','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUECOMP-INGALM','TCON','Cuenta Para Ingreso a Almacén. Relacionado a CUECOMP','activo','si-general','si','si','flujo','recurso_gasto','no','no','no',NULL);
+select conta.f_import_ttipo_relacion_contable ('insert','PLLA_DCON','TCON','Cuentas pago planillas Diario Contable','activo','no','no','no','','','no','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','PLLA_DPRE','TCON','Cuentas pago planillas Diario Presupuestario','activo','si-general','no','no','','','no','no','si','');
+
+
+select conta.f_import_ttabla_relacion_contable ('insert','TCUE','activo','tcuenta_bancaria','TES','id_cuenta_bancaria','','','','','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUEBANCEGRE','TCUE','Cuentas Bancarias','activo','no','si','si','flujo','recurso_gasto','no','no','no',NULL);
+select conta.f_import_ttipo_relacion_contable ('insert','CUEBANCING','TCUE','Cuentas Bancarias Ingresos','activo','no','si','si','flujo','recurso_gasto','no','no','no',NULL);
+
+
+select conta.f_import_ttabla_relacion_contable ('insert','TPRO','activo','tproveedor','PARAM','id_proveedor','','','codigo','','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUENRETPRO','TPRO','Cuentas de retenciones de proveedor','activo','si-general','si','si','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+select conta.f_import_ttipo_relacion_contable ('insert','CUENMULPRO','TPRO','Cuenta Para Multas del Proveedor','activo','no','si','dinamico','flujo','recurso_gasto','no','no','no',NULL);
+select conta.f_import_ttipo_relacion_contable ('insert','CUENPARETGARPRO','TPRO','Pago de Retenciones de Garantia','activo','no','si','dinamico','flujo','recurso_gasto','no','no','no',NULL);
+select conta.f_import_ttipo_relacion_contable ('insert','RETINSER','TPRO','Retencion por intercambio de servicios','activo','no','si','dinamico','flujo','recurso_gasto','no','no','no',NULL);
+select conta.f_import_ttipo_relacion_contable ('insert','PAGOANT','TPRO','Pago de Anticipo Proveedor','activo','no','si','dinamico','flujo_presupuestaria','recurso_gasto','no','si','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUENRETGARPRO','TPRO','Cuentas para retencion de garantia proveedor','activo','si-general','si','dinamico','flujo_presupuestaria','recurso_gasto','no','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUENPAGPRO','TPRO','Cuenta para el pago de Proveedores','activo','si-general','si','dinamico','flujo_presupuestaria','recurso_gasto','no','si','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','RETANT','TPRO','Retencion de Anticipo Proveedor','activo','no','si','dinamico','flujo_presupuestaria','recurso_gasto','no','si','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','VRETGARDFPRO','TPRO','Retencion de garantías por cobrar CLIENTES','activo','no','si','dinamico','flujo_presupuestaria','recurso_gasto','si','no','no','tipo_venta');
+select conta.f_import_ttipo_relacion_contable ('insert','VRETANTDPRO','TPRO','descuento de anticipo pagados por adelantado CLIENTES','activo','no','si','dinamico','flujo_presupuestaria','recurso_gasto','no','si','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUENDEVPRO','TPRO','Cuenta  Devengado Proveedor','activo','no','si','dinamico','flujo_presupuestaria','recurso_gasto','no','si','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUXCRH','TPRO','Cuentas pro Cobrar clientes al Haber','activo','no','si','dinamico','flujo','recurso','si','no','no','tipo_venta');
+select conta.f_import_ttipo_relacion_contable ('insert','CUXCRRGH','TPRO','Cuentas por Cobrar clientes Retencion de garantias al Haber','activo','no','si','dinamico','flujo','recurso','si','no','no','tipo_venta');
+select conta.f_import_ttipo_relacion_contable ('insert','CUXCBRANTI','TPRO','Cuentas por Cobrar Clientes Anticipo','activo','no','si','dinamico','flujo','recurso','no','no','no','tipo_venta');
+select conta.f_import_ttipo_relacion_contable ('insert','CUXCOBRARNOTAS','TPRO','Cuenta por Cobrar Notas de debito por ventas','activo','si-general','si','dinamico','flujo','recurso_gasto','no','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUXPAGARNOTAS','TPRO','Cuenta por pagar notas de credito por ventas','activo','si-general','si','dinamico','flujo','recurso_gasto','si','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CXPDEV','TPRO','Cuenta por Pagar Devoluciones','activo','no','si','dinamico','flujo_presupuestaria','recurso_gasto','si','no','no','tipo_credito_sobre_venta');
+select conta.f_import_ttipo_relacion_contable ('insert','CXCDFPRO','TPRO','CUENTAS POR COBRAR CLIENTES','activo','no','si','dinamico','flujo_presupuestaria','recurso_gasto','si','no','no','tipo_venta_nota_debito');
+
+
+select conta.f_import_ttabla_relacion_contable ('insert','TDEP','activo','tdepto','PARAM','id_depto','','','','','');
+select conta.f_import_ttipo_relacion_contable ('insert','CCDEPCON','TDEP','Centro de Costo Depto Conta','activo','si-unico','no','no','flujo_presupuestaria','recurso_gasto','no','no','no',NULL);
+select conta.f_import_ttipo_relacion_contable ('insert','CC-IT','TDEP','Centro de costo para gasto IT por depto conta','activo','si-general','no','no','','','no','no','no','');
+
+select conta.f_import_ttabla_relacion_contable ('insert','TZIMP','activo','ttaza_impuesto','PARAM','id_taza_impuesto','','','','','');
+select conta.f_import_ttipo_relacion_contable ('insert','TAZAIMP','TZIMP','Taza Impuesto','activo','si-general','si','no','flujo_presupuestaria','recurso_gasto','no','no','no','');
+
+
+select conta.f_import_ttabla_relacion_contable ('insert','TFUN','activo','tfuncionario','ORGA','id_funcionario','','','codigo','','');
+select conta.f_import_ttipo_relacion_contable ('insert','EDINCAJAXRENDIR','TFUN','Devolucion de Dinero Caja por Rendir','activo','no','si','dinamico','flujo','recurso_gasto','no','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CAJAXRENDIR','TFUN','Caja por Rendir','activo','no','si','dinamico','flujo','recurso_gasto','no','no','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','CUEXREND','TFUN','Cuenta por Rendir','activo','no','si','dinamico','flujo','recurso_gasto','no','si','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','EDINXRENDIR','TFUN','Entrega de Dinero por Rendir','activo','no','si','dinamico','flujo','gasto','no','si','no','');
+select conta.f_import_ttipo_relacion_contable ('insert','PRESFUN','TFUN','Prestamos Funcionarios','activo','no','si','dinamico','flujo','recurso_gasto','no','si','no',NULL);
+
+/***********************************F-DAT-RCM-CONTA-0-09/10/2019*****************************************/
+
+
