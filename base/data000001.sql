@@ -2139,4 +2139,19 @@ select conta.f_import_ttipo_relacion_contable ('insert','PRESFUN','TFUN','Presta
 
 /***********************************F-DAT-RCM-CONTA-0-09/10/2019*****************************************/
 
-
+/***********************************I-DAT-RCM-CONTA-0-03/12/2019*****************************************/
+INSERT INTO conta.tconfig_subtipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "codigo", "nombre", "descripcion", "id_config_tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:40.187', NULL, E'activo', E'ACTIVOS', E'ACTIVOS', E'ACTIVOS', 1);
+INSERT INTO conta.tconfig_subtipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "codigo", "nombre", "descripcion", "id_config_tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:40.187', NULL, E'activo', E'PASIVO', E'PASIVO', E'PASIVO', 2);
+INSERT INTO conta.tconfig_subtipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "codigo", "nombre", "descripcion", "id_config_tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:40.187', NULL, E'activo', E'PROVEEDORES', E'PROVEEDORES', E'PROVEEDORES', 2);
+INSERT INTO conta.tconfig_subtipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "codigo", "nombre", "descripcion", "id_config_tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:40.187', NULL, E'activo', E'PATRIMONIO', E'PATRIMONIO', E'PATRIMONIO', 3);
+INSERT INTO conta.tconfig_subtipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "codigo", "nombre", "descripcion", "id_config_tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:40.187', NULL, E'activo', E'GASTOS', E'GASTOS', E'GASTOS', 4);
+INSERT INTO conta.tconfig_subtipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "codigo", "nombre", "descripcion", "id_config_tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:40.187', NULL, E'activo', E'INGRESOS', E'INGRESOS', E'INGRESOS', 5);
+INSERT INTO conta.tconfig_subtipo_cuenta ("id_usuario_reg", "id_usuario_mod", "fecha_reg", "fecha_mod", "estado_reg", "codigo", "nombre", "descripcion", "id_config_tipo_cuenta")
+VALUES (1, NULL, E'2013-02-26 15:38:40.187', NULL, E'activo', E'ORDEN', E'ORDEN', E'ORDEN', 6);
+/***********************************F-DAT-RCM-CONTA-0-03/12/2019*****************************************/
