@@ -376,8 +376,44 @@ class ACTCuenta extends ACTbase{
 			$this->mensajeExito->setMensaje('EXITO','Reporte.php','Reporte generado','Se generó con éxito el reporte: '.$nombreArchivo,'control');
 			$this->mensajeExito->setArchivoGenerado($nombreArchivo);
 			$this->mensajeExito->imprimirRespuesta($this->mensajeExito->generarJson());
-		}
-		else{
+		}else if ($this->objParam->getParametro('formato') == 'json') {
+
+		    $dataSource = $this->recuperarDatosResultados();
+
+		    $i = 0;
+		    foreach ($dataSource as $fila) {
+		        $array[$i]["id_cuenta"] = $fila["id_cuenta"];
+		        $array[$i]["codigo_cuenta"] = $fila["codigo_cuenta"];
+		        $array[$i]["desc_cuenta"] = $fila["desc_cuenta"];
+		        $array[$i]["codigo"] = $fila["codigo"];
+		        $array[$i]["monto"] = $fila["monto"];
+		        
+		        $i++;
+		    }
+		    
+		    //CONEXION A WEB SERVICES
+			$data = array("ip"=>"192.168.2.149",	//IP DEL SERVIDOR DEL SISTEMA ERP DE LA EMPRESA
+				      "json"=> json_encode($array), //CODIFICAMOS A JSON EL ARRAY DEL BG
+			 	     );
+			$json_data = json_encode($data);
+
+			$s = curl_init();
+
+			curl_setopt($s, CURLOPT_URL, 'http://cliente.ofep.gob.bo/api/trigger');
+			curl_setopt($s, CURLOPT_POST, true);
+			curl_setopt($s, CURLOPT_POSTFIELDS, $json_data);
+			curl_setopt($s, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($s, CURLOPT_HTTPHEADER, array(
+				'Content-Type: application/json',
+				'Content-Length: ' . strlen($json_data))
+			);
+
+			$_out = curl_exec($s);
+			echo $_out;
+
+
+
+        } else {
 			//genera reprote en excel ....
 			$this->reporteResultadosXls();
 		}
