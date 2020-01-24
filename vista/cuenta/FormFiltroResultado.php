@@ -96,7 +96,7 @@ header("content-type: text/javascript; charset=UTF-8");
             {
                 config: {
                     name: 'id_resultado_plantilla',
-                    fieldLabel: 'Tipo Reporterubens:',
+                    fieldLabel: 'Tipo Reporte',
                     typeAhead: false,
                     forceSelection: true,
                     allowBlank: false,
@@ -162,8 +162,8 @@ header("content-type: text/javascript; charset=UTF-8");
                     name: 'id_deptos',
                     fieldLabel: 'Depto',
                     typeAhead: false,
-                    forceSelection: true,
-                    allowBlank: false,
+                    forceSelection: false,
+                    allowBlank: true,
                     disableSearchButton: true,
                     emptyText: 'Depto Contable',
                     store: new Ext.data.JsonStore({
@@ -184,6 +184,48 @@ header("content-type: text/javascript; charset=UTF-8");
                     displayField: 'codigo',
                     hiddenName: 'id_depto',
                     enableMultiSelect: true,
+                    triggerAction: 'all',
+                    lazyRender: true,
+                    mode: 'remote',
+                    pageSize: 20,
+                    queryDelay: 200,
+                    anchor: '80%',
+                    listWidth: '280',
+                    resizable: true,
+                    minChars: 2
+                },
+                //type:'TrigguerCombo',
+                type: 'AwesomeCombo',
+                id_grupo: 0,
+                form: true
+            },
+            {
+                config: {
+                    name: 'id_entidades',
+                    fieldLabel: 'Entidad',
+                    typeAhead: false,
+                    forceSelection: false,
+                    allowBlank: true,
+                    disableSearchButton: true,
+                    emptyText: '',
+                    store: new Ext.data.JsonStore({
+                        url: '../../sis_parametros/control/Entidad/listarEntidad',
+                        id: 'id_entidad',
+                        root: 'datos',
+                        sortInfo: {
+                            field: 'nombre',
+                            direction: 'ASC'
+                        },
+                        totalProperty: 'total',
+                        fields: ['id_entidad', 'nombre', 'nit'],
+                        // turn on remote sorting
+                        remoteSort: true,
+                        baseParams: {par_filtro: 'nombre#nit'}
+                    }),
+                    valueField: 'id_entidad',
+                    displayField: 'nombre',
+                    hiddenName: 'id_entidad',
+                    enableMultiSelect: false,
                     triggerAction: 'all',
                     lazyRender: true,
                     mode: 'remote',
@@ -259,7 +301,7 @@ header("content-type: text/javascript; charset=UTF-8");
             },
         ],
 
-        labelSubmit: '<i class="fa fa-check"></i> Aplicar Filtro:ruben',
+        labelSubmit: '<i class="fa fa-check"></i> Aplicar Filtro',
         title: 'Filtro de mayores',
         // Funcion guardar del formulario
         onSubmit: function (o) {

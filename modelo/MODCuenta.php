@@ -253,6 +253,7 @@ class MODCuenta extends MODbase{
 	    return $this->respuesta;       
  }
 
+
    function listarDetResultados(){   		
 	    //Definicion de variables para ejecucion del procedimientp
 	    $this->procedimiento='conta.f_resultados';
@@ -260,13 +261,13 @@ class MODCuenta extends MODbase{
 		$this->setTipoRetorno('record');
 	    $this->transaccion='CONTA_RESUTADO_SEL';
 	    $this->tipo_procedimiento='SEL';//tipo de transaccion
-	    
 	    $this->setParametro('desde','desde','date');
 		$this->setParametro('hasta','hasta','date');
 		$this->setParametro('id_resultado_plantilla','id_resultado_plantilla','integer');
-		$this->setParametro('id_deptos','id_deptos','varchar'); 
+        $this->setParametro('id_deptos','id_deptos','varchar'); 
+        $this->setParametro('id_entidades','id_entidades','varchar');
 		$this->setParametro('extendido','extendido','varchar');
-		$this->setParametro('incluir_sinmov','incluir_sinmov','varchar'); 	        
+        $this->setParametro('incluir_sinmov','incluir_sinmov','varchar');       
 	    //Definicion de la lista del resultado del query
 	    $this->captura('subrayar','varchar'); 
         $this->captura('font_size','varchar'); 

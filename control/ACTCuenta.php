@@ -335,7 +335,7 @@ class ACTCuenta extends ACTbase{
 
    function recuperarDatosResultados(){
 
-		$this->objFunc = $this->create('MODCuenta');
+        $this->objFunc = $this->create('MODCuenta');
 		$cbteHeader = $this->objFunc->listarDetResultados($this->objParam);
 		if($cbteHeader->getTipo() == 'EXITO'){
 

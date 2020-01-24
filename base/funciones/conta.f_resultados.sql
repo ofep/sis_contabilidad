@@ -35,10 +35,12 @@ v_multiple_col 			boolean;
 v_forzar_visible		boolean;
 v_prioridad				integer;
 v_incluir_sinmov    	varchar;
+v_id_depto    		varchar;
+va_id_deptos			integer[];
  
 
 BEGIN
-     
+
      v_nombre_funcion = 'conta.f_resultados';
      v_parametros = pxp.f_get_record(p_tabla);
      
@@ -56,11 +58,32 @@ BEGIN
     ***********************************/
 
 	IF(p_transaccion = 'CONTA_RESUTADO_SEL')then
-         
-    
-    
-         --  0) recuperamos la gestion segun fecha inicial   
-         
+
+        -- Verificar si se envio alguna entidad en ves de departamentos para porder obetner los departamentos realcionados a esa entidad
+	       IF v_parametros.id_entidades = '' OR v_parametros.id_entidades is NULL THEN
+               IF v_parametros.id_deptos = '' OR v_parametros.id_deptos is NULL THEN
+                    raise exception 'No seleccionó departamentos o la entidad';
+                ELSE
+                    v_id_depto = v_parametros.id_deptos;
+                    va_id_deptos = string_to_array(v_parametros.id_deptos,',')::INTEGER[];
+                    IF EXISTS(select 1 from param.tdepto depto where depto.id_depto = ANY(va_id_deptos) having (count(distinct depto.id_entidad) > 1)) THEN
+                        raise exception 'Los departamentos que seleccionó pertenecen a mas de una entidad';
+                    END IF;
+               END IF;
+           ELSE
+
+                WITH RECURSIVE t(id) AS (
+                    SELECT depto.id_depto
+                    FROM param.tdepto depto
+                    INNER JOIN segu.tsubsistema sub ON depto.id_subsistema = sub.id_subsistema
+                    WHERE depto.id_entidad = v_parametros.id_entidades::integer and sub.codigo = 'CONTA' and depto.estado_reg = 'activo'
+                )
+
+                SELECT (pxp.list(id::VARCHAR))
+                    INTO v_id_depto
+                FROM t;
+           END IF;
+         --  0) recuperamos la gestion segun fecha inicial
           v_gestion =  EXTRACT(YEAR FROM  v_parametros.desde::Date)::varchar;
             
           select 
@@ -69,8 +92,7 @@ BEGIN
             v_id_gestion
           from param.tgestion ges 
           where ges.gestion::varchar  = v_gestion and ges.estado_reg = 'activo';
-          
-          IF v_id_gestion is NULL THEN  
+          IF v_id_gestion is NULL THEN
           		raise exception 'No se encontro gestion para la fecha % en %', v_parametros.desde, v_gestion;
           END IF;
           
@@ -125,7 +147,7 @@ BEGIN
                                     salta_hoja    varchar
                                     ) ON COMMIT DROP;
              
-         
+
          -- 2)  busca si tiene plantillas dependientes segun prioridad   
          FOR v_registros in ( select 
                                   rd.*,
@@ -142,7 +164,7 @@ BEGIN
                                                             v_registros.id_resultado_plantilla_hijo, 
                                                             v_parametros.desde, 
                                                             v_parametros.hasta, 
-                                                            v_parametros.id_deptos,
+                                                            v_id_depto::varchar,
                                                             v_id_gestion,
                                                             NULL, --id_int_comprobante
                                                             TRUE,
@@ -152,13 +174,12 @@ BEGIN
                END IF;
          
          END LOOP;
-         
          -- 3) Procesar plantilla principal
           IF not conta.f_resultado_procesar_plantilla(v_registros_plantilla.codigo,
                                                       v_parametros.id_resultado_plantilla, 
                                                       v_parametros.desde, 
                                                       v_parametros.hasta, 
-                                                      v_parametros.id_deptos,
+                                                      v_id_depto::varchar,
                                                       v_id_gestion,
                                                       NULL, --id_int_comprobante
                                                       false,
@@ -168,8 +189,8 @@ BEGIN
            
          
          raise notice 'INICIA CONSULTA....';
-         
-       
+
+
           FOR v_registros in (SELECT                                   
                                         subrayar,
                                         font_size,
