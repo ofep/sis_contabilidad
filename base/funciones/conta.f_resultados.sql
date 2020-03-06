@@ -35,8 +35,8 @@ v_multiple_col 			boolean;
 v_forzar_visible		boolean;
 v_prioridad				integer;
 v_incluir_sinmov    	varchar;
-v_id_depto    		varchar;
-va_id_deptos			integer[];
+--v_id_depto    		varchar;
+--va_id_deptos			integer[];
  
 
 BEGIN
@@ -60,7 +60,7 @@ BEGIN
 	IF(p_transaccion = 'CONTA_RESUTADO_SEL')then
 
         -- Verificar si se envio alguna entidad en ves de departamentos para porder obetner los departamentos realcionados a esa entidad
-	       IF v_parametros.id_entidades = '' OR v_parametros.id_entidades is NULL THEN
+	       /*IF v_parametros.id_entidades = '' OR v_parametros.id_entidades is NULL THEN
                IF v_parametros.id_deptos = '' OR v_parametros.id_deptos is NULL THEN
                     raise exception 'No seleccionó departamentos o la entidad';
                 ELSE
@@ -82,7 +82,7 @@ BEGIN
                 SELECT (pxp.list(id::VARCHAR))
                     INTO v_id_depto
                 FROM t;
-           END IF;
+           END IF;*/
          --  0) recuperamos la gestion segun fecha inicial
           v_gestion =  EXTRACT(YEAR FROM  v_parametros.desde::Date)::varchar;
             
@@ -164,7 +164,7 @@ BEGIN
                                                             v_registros.id_resultado_plantilla_hijo, 
                                                             v_parametros.desde, 
                                                             v_parametros.hasta, 
-                                                            v_id_depto::varchar,
+                                                            v_parametros.id_deptos,
                                                             v_id_gestion,
                                                             NULL, --id_int_comprobante
                                                             TRUE,
@@ -179,7 +179,7 @@ BEGIN
                                                       v_parametros.id_resultado_plantilla, 
                                                       v_parametros.desde, 
                                                       v_parametros.hasta, 
-                                                      v_id_depto::varchar,
+                                                      v_parametros.id_deptos,
                                                       v_id_gestion,
                                                       NULL, --id_int_comprobante
                                                       false,

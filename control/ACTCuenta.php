@@ -20,6 +20,7 @@ require_once(dirname(__FILE__).'/../reportes/RBalanceOrdenes.php');
 require_once(dirname(__FILE__).'/../reportes/RBalanceTipoCC.php');
 require_once(dirname(__FILE__).'/../reportes/RBalanceTipoCcXls.php');
 require_once(dirname(__FILE__).'/../reportes/RCuadroActualizacion.php'); //#28
+require_once('../../lib/lib_control/ACTConexionOFEP.php');
 
 class ACTCuenta extends ACTbase{
 
@@ -377,42 +378,31 @@ class ACTCuenta extends ACTbase{
 			$this->mensajeExito->setArchivoGenerado($nombreArchivo);
 			$this->mensajeExito->imprimirRespuesta($this->mensajeExito->generarJson());
 		}else if ($this->objParam->getParametro('formato') == 'json') {
-
-		    $dataSource = $this->recuperarDatosResultados();
-
+            
+            $dataSource = $this->recuperarDatosResultados();
 		    $i = 0;
 		    foreach ($dataSource as $fila) {
 		        $array[$i]["id_cuenta"] = $fila["id_cuenta"];
 		        $array[$i]["codigo_cuenta"] = $fila["codigo_cuenta"];
 		        $array[$i]["desc_cuenta"] = $fila["desc_cuenta"];
 		        $array[$i]["codigo"] = $fila["codigo"];
-		        $array[$i]["monto"] = $fila["monto"];
-		        
+                $array[$i]["monto"] = $fila["monto"];
 		        $i++;
-		    }
-		    
-		    //CONEXION A WEB SERVICES
-			$data = array("ip"=>"192.168.2.149",	//IP DEL SERVIDOR DEL SISTEMA ERP DE LA EMPRESA
-				      "json"=> json_encode($array), //CODIFICAMOS A JSON EL ARRAY DEL BG
-			 	     );
-			$json_data = json_encode($data);
+            }
 
-			$s = curl_init();
-
-			curl_setopt($s, CURLOPT_URL, 'http://cliente.ofep.gob.bo/api/trigger');
-			curl_setopt($s, CURLOPT_POST, true);
-			curl_setopt($s, CURLOPT_POSTFIELDS, $json_data);
-			curl_setopt($s, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($s, CURLOPT_HTTPHEADER, array(
-				'Content-Type: application/json',
-				'Content-Length: ' . strlen($json_data))
-			);
-
-			$_out = curl_exec($s);
-			echo $_out;
+            $data = array(
+                "json"=> json_encode($array), //CODIFICAMOS A JSON EL ARRAY DEL BG
+                "desde" => $this->objParam->getParametro('desde'),
+                "hasta" => $this->objParam->getParametro('hasta'),
+                "titulo" => $this->objParam->getParametro('titulo_rep'),
+             );
 
 
-
+            //Envio de informacion a la OFEP
+            $conexionOFEP =  new ACTConexionOFEP($this->objParam);
+            $conexionOFEP = $conexionOFEP->conexionOFEP($data);
+            return $conexionOFEP;
+            
         } else {
 			//genera reprote en excel ....
 			$this->reporteResultadosXls();
